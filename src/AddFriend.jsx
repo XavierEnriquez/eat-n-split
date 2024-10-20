@@ -23,15 +23,17 @@ export default function AddFriend({ formClass, data, onData, onClick }) {
   }
   return (
     <form className={formClass} onSubmit={(e) => handleAddFriend(e)}>
-      <label>🧑‍🤝‍👩 Friend name</label>
+      <label for="name">🧑‍🤝‍👩 Friend name</label>
       <input
         required
+        id="name"
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <label>🌌 Image URL</label>
+      <label for="image">🌌 Image URL</label>
       <input
+        id="image"
         type="text"
         value={image}
         onChange={(e) => setImage(e.target.value)}
