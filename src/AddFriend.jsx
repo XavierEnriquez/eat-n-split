@@ -17,14 +17,8 @@ export default function AddFriend({ formClass, data, onData }) {
       balance: 0,
     };
 
-    fetch("http://localhost:3000/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newFriend),
-    }).then(() => {
-      onData([...data, newFriend]);
-      setName("");
-    });
+    onData([...data, newFriend]);
+    setName("");
   }
   return (
     <form className={formClass} onSubmit={(e) => handleAddFriend(e)}>
