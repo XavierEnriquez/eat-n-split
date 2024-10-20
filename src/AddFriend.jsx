@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AddFriend({ formClass, data, onData }) {
+export default function AddFriend({ formClass, data, onData, onClick }) {
   const [objectId, setObjectId] = useState(data.at(-1).id + 1);
   const [name, setName] = useState("");
   const [image, setImage] = useState("https://i.pravatar.cc/48");
@@ -19,6 +19,7 @@ export default function AddFriend({ formClass, data, onData }) {
 
     onData([...data, newFriend]);
     setName("");
+    onClick();
   }
   return (
     <form className={formClass} onSubmit={(e) => handleAddFriend(e)}>

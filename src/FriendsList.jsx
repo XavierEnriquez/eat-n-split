@@ -85,7 +85,12 @@ export default function FriendsList({
           </li>
         ))}
       </ul>
-      <AddFriend formClass={formClass} data={data} onData={onData} />
+      <AddFriend
+        formClass={formClass}
+        data={data}
+        onData={onData}
+        onClick={handleHideForm}
+      />
       <button className="button" onClick={handleHideForm}>
         {hideForm ? "Add a friend" : "Close"}
       </button>
