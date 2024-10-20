@@ -1,15 +1,18 @@
 import { useState } from "react";
 
 export default function AddFriend({ formClass, data, onData }) {
-  const [objectId, setObjectId] = useState(data[0].id + 1);
+  const [objectId, setObjectId] = useState(data.at(-1).id + 1);
   const [name, setName] = useState("");
   const [image, setImage] = useState("https://i.pravatar.cc/48");
   function handleAddFriend(e) {
     e.preventDefault();
+
+    if (!name || !image) return;
+
     setObjectId(objectId + 1);
     const newFriend = {
       id: objectId,
-      name,
+      name: name.charAt(0).toUpperCase() + name.slice(1),
       image,
       balance: 0,
     };
